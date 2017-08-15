@@ -1,5 +1,5 @@
 deployment:
   staging:
-    branch: lec6.2-practice
+    branch: master
     heroku:
-      appname: humanbuuk
+      appname: foo-bar-123
