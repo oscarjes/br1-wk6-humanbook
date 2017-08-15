@@ -41,6 +41,17 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+
+  context "users logged" do
+    describe "GET index " do
+      it "loads all users" do 
+       user = User.create! name: "Bob", email: "bob@example.com", password: "asdfasdf"
+      get :index, params: {}, session: {user_id: user.id}
+      expect(assigns(:users)).to eq [user]
+      end
+    end
+  end
+
   describe "POST #create" do
 
     it "creates user" do

@@ -19,4 +19,20 @@ RSpec.describe MessagesController, type: :controller do
       }.to change(Message, :count).by(1)
     end
   end
+
+  describe "GET #inbox" do
+    it "returns a success response" do
+      get :inbox, params: {}, session: valid_session
+      expect(response).to be_success
+    end
+  end
+
+  describe "GET #sent" do
+    it "returns a success response" do
+      get :sent, params: {}, session: valid_session
+      expect(response).to be_success
+    end
+  end
+
+
 end
