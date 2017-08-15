@@ -15,4 +15,16 @@ RSpec.describe User, type: :model do
       expect(@user.image_url_or_default).to eq "http://lorempixel.com/128/128/sports/Fake-User/"
     end
   end
+
+  describe "invalid user" do
+    before do
+      @user = User.create name: "Adam", email: "adam@example.com", password: ""
+    end
+
+    it "doesn't create" do
+      # expect(@user.valid?).to eq true
+      expect(@user).to_not be_valid
+    end
+
+  end
 end
